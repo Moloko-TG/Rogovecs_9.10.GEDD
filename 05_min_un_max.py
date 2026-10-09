@@ -10,17 +10,17 @@ try:
 
     else:
 
-        minNumber = 0
-        maxNumber = 0
+        minNumber = None
+        maxNumber = None
 
         for i in range(SycleRange):
 
             UserNumber = int(input("Ievadi savu " + str(i+1) + " skaitli: "))
 
-            if (minNumber > UserNumber or minNumber == 0):
+            if (minNumber > UserNumber or minNumber == None):
                 minNumber = UserNumber
 
-            if (maxNumber < UserNumber or maxNumber == 0):
+            if (maxNumber < UserNumber or maxNumber == None):
                 maxNumber = UserNumber
 
         print(f"Mazakais skaitlis: {minNumber}, lielākais skaitlis: {maxNumber}")

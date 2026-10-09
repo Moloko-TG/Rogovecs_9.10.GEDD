@@ -25,12 +25,12 @@ Izvēlētā ievade: SycleRange = 2; skaitļi = 5, 10.
 | 4     |   else     |   SycleRange=2  |  Inicializē min/max   |  minNumber=0,   |                                            |
 |       |            |                 |                       |  maxNumber=0    |                                            |
 | 5     |  for i=0   |    min/max=0    |Cikls 1 solis,ievada 5 |i=0,UserNumber=5 |          Ievadi savu 1 skaitli:            |
-| 6     |   0 > 5    |   minNumber=0   |  Nosacījums aplams    |   minNumber=0   |                                            |
-| 7     |   0 < 5    |   maxNumber=0   | Atjaunina maksimumu   |   maxNumber=5   |                                            |
-| 8     |  for i=1   |   maxNumber=5   |Cikla 2 solis,ievada 10|i=1,UserNumber=10|          Ievadi savu 2 skaitli:            |
-| 9     |   0 > 10   |   minNumber=0   |  Nosacījums aplams    |   minNumber=0   |                                            |
-| 10    |   5 < 10   |   maxNumber=5   | Atjaunina maksimumu   |   maxNumber=10  |                                            |
-| 11    |Cikla beigas|  min=0, max=10  |    Izvada rezultātu   |  min=0, max=10  |Mazakais skaitlis: 0, lielākais skaitlis: 10|
+| 6     |0>5 or 0==0 |  min=0, User=5  | Patiess, maina min    |   minNumber=5   |                                            |
+| 7     |0<5 or 0==0 |   maxNumber=0   | Patiess, maina max    |   maxNumber=5   |                                            |
+| 8     |  for i=1   |   min=5, max=5  |Cikla 2 solis,ievada 10|i=1,UserNumber=10|          Ievadi savu 2 skaitli:            |
+| 9     |5>10 or 5==0|  min=5, User=10 |  Nosacījums aplams    |   minNumber=5   |                                            |
+| 10    |5<10 or 5==0|  max=5, User=10 | Atjaunina maksimumu   |   maxNumber=10  |                                            |
+| 11    |Cikla beigas|  min=5, max=10  |   Izvada rezultātu    |  min=5, max=10  |Mazakais skaitlis: 5, lielākais skaitlis: 10|
 ```
 
 ## 3. Testa piemēri
@@ -48,9 +48,7 @@ Izveido vismaz četrus atšķirīgus testus.
 
 ## 4. Kļūda, pretpiemērs vai uzlabojums
 
-Ja tests atklāj kļūdu, pieraksti ievadi, sagaidāmo rezultātu, faktisko rezultātu, kļūdas cēloni un labojumu.
-
-Ja programma visus testus iztur, izvēlies agrāku kļūdainu `commit` vai paskaidro, kura ievade radītu kļūdu bez vienas no tavām pārbaudēm.
+Atklātā kļūda: Programma nepareizi nosaka minimālo skaitli, ja ievadīti tikai pozitīvi skaitļi (testa "Tipisks" rezultāts), un nepareizi nosaka maksimālo skaitli, ja ievadīti tikai negatīvi skaitļi (testa "Papildu tests" rezultāts).Kļūdas cēlonis: Kodā minNumber = 0 un maxNumber = 0 (13. un 14. rindiņa) ir cieti iekodētas sākotnējās vērtības. Ja lietotājs ievada skaitli $5$, nosacījums 0 > 5 (20. rindiņa) nav spēkā, tāpēc minimums paliek $0$, lai gan lietotājs nulli neievadīja.   Labojums: Sākotnējās minNumber un maxNumber vērtības nevar būt vienkārši $0$. Viens no risinājumiem ir piešķirt tām pirmā ievadītā skaitļa vērtību (piemēram, ciklā pievienojot pārbaudi if i == 0:). Cita pieeja Python valodā ir izmantot bezgalību: minNumber = float('inf') un maxNumber = float('-inf'). Tādējādi jebkurš ievadītais skaitlis būs mazāks par bezgalību un lielāks par mīnuss bezgalību pirmajā salīdzināšanas reizē.
 
 **Ieteiktais commit:** `Pievienots algoritms un tā testi`
 
