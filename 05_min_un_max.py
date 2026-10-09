@@ -17,10 +17,10 @@ try:
 
             UserNumber = int(input("Ievadi savu " + str(i+1) + " skaitli: "))
 
-            if (minNumber > UserNumber or minNumber == None):
+            if (minNumber == None or minNumber > UserNumber):
                 minNumber = UserNumber
 
-            if (maxNumber < UserNumber or maxNumber == None):
+            if (maxNumber == None or maxNumber < UserNumber):
                 maxNumber = UserNumber
 
         print(f"Mazakais skaitlis: {minNumber}, lielākais skaitlis: {maxNumber}")
